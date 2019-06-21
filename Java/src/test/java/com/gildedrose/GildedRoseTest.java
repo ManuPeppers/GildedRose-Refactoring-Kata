@@ -64,6 +64,14 @@ public class GildedRoseTest {
     }
 
     @Test
+    public void QualityNotOverflowingFifty(){
+        Item[] items = new Item[]{new Item("Aged Brie",0,49)};
+        GildedRose app = new GildedRose(items);
+        app.updateQuality();
+        assertEquals(new Item("Aged Brie",-1,50).toString(), items[0].toString());
+    }
+
+    @Test
     public void decreaseSellinAndQualityBSampleItemQualityNotNegative(){
         Item[] items = new Item[]{new Item("Sample StandardItem",4,0)};
         GildedRose app = new GildedRose(items);
